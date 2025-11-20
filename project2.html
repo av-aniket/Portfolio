@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Case Study | Dev Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .case-study { padding: 100px 0; }
+        .case-study-hero { padding: 100px 0; background: linear-gradient(135deg, rgba(10, 122, 255, 0.1), rgba(255, 107, 53, 0.1)); margin-bottom: 60px; }
+        .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 60px 0; align-items: center; }
+        .case-study-image { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
+        .case-study-image img { width: 100%; height: auto; display: block; }
+        .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
+        .challenge-item { background: var(--dark-bg-secondary); padding: 30px; border-radius: 12px; border-left: 4px solid var(--primary-blue); }
+        .challenge-item h4 { color: var(--accent-orange); margin-bottom: 15px; }
+        .solution-list { list-style: none; margin: 30px 0; }
+        .solution-list li { padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-muted); }
+        .solution-list li:before { content: "✓"; position: absolute; left: 0; color: var(--accent-orange); font-weight: bold; }
+        .tech-stack { display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0; }
+        .tech-badge { background: var(--dark-bg-tertiary); color: var(--accent-orange); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--accent-orange); }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin: 60px 0; }
+        .stat-box { text-align: center; padding: 40px; background: var(--dark-bg-secondary); border-radius: 12px; border: 1px solid var(--border-color); }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary-blue); }
+        .stat-label { color: var(--text-muted); margin-top: 10px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-blue); text-decoration: none; margin-bottom: 40px; transition: var(--transition); }
+        .back-link:hover { gap: 12px; }
+        @media (max-width: 768px) { .case-study-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(2, 1fr); } .challenge-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">Dev<span class="logo-highlight">.</span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="container">
+            <a href="index.html#portfolio" class="back-link">← Back to Portfolio</a>
+            <h1 class="section-title">Analytics Dashboard</h1>
+            <p class="section-subtitle">Real-time data visualization platform</p>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="case-study">
+        <div class="container">
+            <!-- Overview -->
+            <div class="case-study-grid">
+                <div>
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 20px;">Project Overview</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                        Built a comprehensive real-time analytics dashboard that visualizes complex datasets and business metrics. The platform enables users to track KPIs, analyze trends, and make data-driven decisions with beautiful, interactive charts.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        The dashboard processes millions of data points daily and delivers real-time updates to thousands of concurrent users across multiple time zones.
+                    </p>
+                </div>
+                <div class="case-study-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-adf4e565d871?w=600&h=400&fit=crop" alt="Analytics Dashboard">
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">4 months</div>
+                    <div class="stat-label">Development Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">15K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Data Points/Day</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">200ms</div>
+                    <div class="stat-label">Data Refresh Rate</div>
+                </div>
+            </div>
+
+            <!-- Challenges & Solutions -->
+            <h2 style="font-size: 2rem; margin: 60px 0 40px;">Challenges & Solutions</h2>
+            
+            <div class="challenge-grid">
+                <div class="challenge-item">
+                    <h4>Challenge: Real-time Data Updates</h4>
+                    <p>Displaying live data without overwhelming the browser and maintaining smooth 60fps animations.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Solution: WebSocket & Optimization</h4>
+                    <p>Implemented WebSocket for real-time data and used requestAnimationFrame for smooth animations.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Challenge: Large Dataset Rendering</h4>
+                    <p>Rendering thousands of data points without causing performance degradation or memory leaks.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Solution: Virtual Scrolling & Aggregation</h4>
+                    <p>Implemented virtual scrolling and data aggregation to optimize rendering performance.</p>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Technology Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-badge">Vue 3</div>
+                    <div class="tech-badge">Chart.js</div>
+                    <div class="tech-badge">D3.js</div>
+                    <div class="tech-badge">WebSocket</div>
+                    <div class="tech-badge">Node.js</div>
+                    <div class="tech-badge">PostgreSQL</div>
+                    <div class="tech-badge">Redis</div>
+                    <div class="tech-badge">Vite</div>
+                </div>
+            </div>
+
+            <!-- Key Features -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Key Features</h2>
+                <ul class="solution-list">
+                    <li>Real-time data visualization with live updates</li>
+                    <li>Interactive charts with zoom, pan, and drill-down capabilities</li>
+                    <li>Custom dashboard creation and widget configuration</li>
+                    <li>Advanced filtering and date range selection</li>
+                    <li>Export data to CSV and PDF formats</li>
+                    <li>User authentication with role-based access control</li>
+                    <li>Performance metrics and trend analysis</li>
+                    <li>Alert notifications for threshold breaches</li>
+                    <li>Responsive design for mobile and desktop</li>
+                    <li>Dark mode with theme customization</li>
+                </ul>
+            </div>
+
+            <!-- Results -->
+            <div style="background: linear-gradient(135deg, rgba(10, 122, 255, 0.1), rgba(255, 107, 53, 0.1)); padding: 60px; border-radius: 12px; margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Results & Impact</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div>
+                        <h4 style="color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 15px;">Business Outcomes</h4>
+                        <ul class="solution-list">
+                            <li>45% faster decision-making process</li>
+                            <li>30% reduction in reporting time</li>
+                            <li>25% improvement in data accuracy</li>
+                            <li>9/10 client satisfaction rating</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-orange); font-size: 1.2rem; margin-bottom: 15px;">Performance Metrics</h4>
+                        <ul class="solution-list">
+                            <li>Page load time: &lt;1 second</li>
+                            <li>Data update latency: 200ms</li>
+                            <li>Support 5000+ concurrent users</li>
+                            <li>99.95% system uptime</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lessons Learned -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Lessons Learned</h2>
+                <ul class="solution-list">
+                    <li>Importance of efficient data aggregation strategies</li>
+                    <li>Value of real-time communication protocols like WebSocket</li>
+                    <li>Critical need for comprehensive performance monitoring</li>
+                    <li>Benefits of modular component architecture</li>
+                    <li>Significance of user experience in data visualization</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; padding: 60px 0;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 30px;">Interested in similar solutions?</h3>
+                <a href="index.html#contact" class="btn btn-primary">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alex - Frontend Developer. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

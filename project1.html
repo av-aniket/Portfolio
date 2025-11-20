@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Platform - Case Study | Dev Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .case-study { padding: 100px 0; }
+        .case-study-hero { padding: 100px 0; background: linear-gradient(135deg, rgba(10, 122, 255, 0.1), rgba(255, 107, 53, 0.1)); margin-bottom: 60px; }
+        .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 60px 0; align-items: center; }
+        .case-study-image { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
+        .case-study-image img { width: 100%; height: auto; display: block; }
+        .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
+        .challenge-item { background: var(--dark-bg-secondary); padding: 30px; border-radius: 12px; border-left: 4px solid var(--primary-blue); }
+        .challenge-item h4 { color: var(--accent-orange); margin-bottom: 15px; }
+        .solution-list { list-style: none; margin: 30px 0; }
+        .solution-list li { padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-muted); }
+        .solution-list li:before { content: "✓"; position: absolute; left: 0; color: var(--accent-orange); font-weight: bold; }
+        .tech-stack { display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0; }
+        .tech-badge { background: var(--dark-bg-tertiary); color: var(--accent-orange); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--accent-orange); }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin: 60px 0; }
+        .stat-box { text-align: center; padding: 40px; background: var(--dark-bg-secondary); border-radius: 12px; border: 1px solid var(--border-color); }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary-blue); }
+        .stat-label { color: var(--text-muted); margin-top: 10px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-blue); text-decoration: none; margin-bottom: 40px; transition: var(--transition); }
+        .back-link:hover { gap: 12px; }
+        @media (max-width: 768px) { .case-study-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(2, 1fr); } .challenge-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">Dev<span class="logo-highlight">.</span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="container">
+            <a href="index.html#portfolio" class="back-link">← Back to Portfolio</a>
+            <h1 class="section-title">E-commerce Platform</h1>
+            <p class="section-subtitle">Full-stack React application with advanced features</p>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="case-study">
+        <div class="container">
+            <!-- Overview -->
+            <div class="case-study-grid">
+                <div>
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 20px;">Project Overview</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                        This comprehensive e-commerce platform was built from the ground up to provide an exceptional shopping experience. The project includes product discovery, advanced filtering, real-time shopping cart management, secure payment integration, and order tracking.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        The platform handles complex product catalogs with thousands of items and serves hundreds of concurrent users with sub-second response times.
+                    </p>
+                </div>
+                <div class="case-study-image">
+                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="E-commerce Platform">
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">6 months</div>
+                    <div class="stat-label">Development Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Monthly Users</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">0.8s</div>
+                    <div class="stat-label">Avg. Load Time</div>
+                </div>
+            </div>
+
+            <!-- Challenges & Solutions -->
+            <h2 style="font-size: 2rem; margin: 60px 0 40px;">Challenges & Solutions</h2>
+            
+            <div class="challenge-grid">
+                <div class="challenge-item">
+                    <h4>Challenge: Performance at Scale</h4>
+                    <p>Handling thousands of product listings with real-time inventory updates while maintaining sub-second response times.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Solution: Optimized Architecture</h4>
+                    <p>Implemented Redis caching, database indexing, and lazy loading with pagination for seamless performance.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Challenge: Complex State Management</h4>
+                    <p>Managing cart state, user preferences, filters, and real-time updates across multiple components.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Solution: Redux Implementation</h4>
+                    <p>Implemented Redux with middleware for predictable state management and time-travel debugging.</p>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Technology Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-badge">React 18</div>
+                    <div class="tech-badge">Redux</div>
+                    <div class="tech-badge">Node.js</div>
+                    <div class="tech-badge">Express.js</div>
+                    <div class="tech-badge">MongoDB</div>
+                    <div class="tech-badge">Stripe API</div>
+                    <div class="tech-badge">Webpack</div>
+                    <div class="tech-badge">Jest</div>
+                </div>
+            </div>
+
+            <!-- Key Features -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Key Features</h2>
+                <ul class="solution-list">
+                    <li>Advanced product filtering with multiple criteria (price, category, ratings, etc.)</li>
+                    <li>Real-time shopping cart with persistent storage</li>
+                    <li>Secure payment integration with Stripe</li>
+                    <li>Order history and tracking system</li>
+                    <li>User authentication and authorization</li>
+                    <li>Admin dashboard for inventory management</li>
+                    <li>Product reviews and ratings system</li>
+                    <li>Email notifications for orders and account updates</li>
+                    <li>Mobile-responsive design</li>
+                    <li>Search functionality with autocomplete</li>
+                </ul>
+            </div>
+
+            <!-- Results -->
+            <div style="background: linear-gradient(135deg, rgba(10, 122, 255, 0.1), rgba(255, 107, 53, 0.1)); padding: 60px; border-radius: 12px; margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Results & Impact</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div>
+                        <h4 style="color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 15px;">User Engagement</h4>
+                        <ul class="solution-list">
+                            <li>40% increase in user retention</li>
+                            <li>35% higher average order value</li>
+                            <li>60% reduction in cart abandonment</li>
+                            <li>4.8/5 user satisfaction rating</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-orange); font-size: 1.2rem; margin-bottom: 15px;">Technical Metrics</h4>
+                        <ul class="solution-list">
+                            <li>Lighthouse score: 95/100</li>
+                            <li>Core Web Vitals: All Green</li>
+                            <li>99.9% uptime achieved</li>
+                            <li>Query response time: &lt;100ms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lessons Learned -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Lessons Learned</h2>
+                <ul class="solution-list">
+                    <li>Importance of comprehensive testing early in development</li>
+                    <li>Value of performance optimization from day one</li>
+                    <li>Significance of clear communication with stakeholders</li>
+                    <li>Benefits of incremental deployment and monitoring</li>
+                    <li>Necessity of scalable architecture planning</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; padding: 60px 0;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 30px;">Ready to build something amazing?</h3>
+                <a href="index.html#contact" class="btn btn-primary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alex - Frontend Developer. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

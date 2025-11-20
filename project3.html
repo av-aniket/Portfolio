@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Connection App - Case Study | Dev Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .case-study { padding: 100px 0; }
+        .case-study-hero { padding: 100px 0; background: linear-gradient(135deg, rgba(10, 122, 255, 0.1), rgba(255, 107, 53, 0.1)); margin-bottom: 60px; }
+        .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 60px 0; align-items: center; }
+        .case-study-image { border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); }
+        .case-study-image img { width: 100%; height: auto; display: block; }
+        .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; }
+        .challenge-item { background: var(--dark-bg-secondary); padding: 30px; border-radius: 12px; border-left: 4px solid var(--primary-blue); }
+        .challenge-item h4 { color: var(--accent-orange); margin-bottom: 15px; }
+        .solution-list { list-style: none; margin: 30px 0; }
+        .solution-list li { padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-muted); }
+        .solution-list li:before { content: "✓"; position: absolute; left: 0; color: var(--accent-orange); font-weight: bold; }
+        .tech-stack { display: flex; gap: 15px; flex-wrap: wrap; margin: 30px 0; }
+        .tech-badge { background: var(--dark-bg-tertiary); color: var(--accent-orange); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--accent-orange); }
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin: 60px 0; }
+        .stat-box { text-align: center; padding: 40px; background: var(--dark-bg-secondary); border-radius: 12px; border: 1px solid var(--border-color); }
+        .stat-number { font-size: 2.5rem; font-weight: 700; color: var(--primary-blue); }
+        .stat-label { color: var(--text-muted); margin-top: 10px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-blue); text-decoration: none; margin-bottom: 40px; transition: var(--transition); }
+        .back-link:hover { gap: 12px; }
+        @media (max-width: 768px) { .case-study-grid { grid-template-columns: 1fr; } .stats { grid-template-columns: repeat(2, 1fr); } .challenge-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">Dev<span class="logo-highlight">.</span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="container">
+            <a href="index.html#portfolio" class="back-link">← Back to Portfolio</a>
+            <h1 class="section-title">Social Connection App</h1>
+            <p class="section-subtitle">Mobile-first social platform with real-time features</p>
+        </div>
+    </section>
+
+    <!-- Case Study Content -->
+    <section class="case-study">
+        <div class="container">
+            <!-- Overview -->
+            <div class="case-study-grid">
+                <div>
+                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 20px;">Project Overview</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                        Developed a mobile-first social networking platform that enables users to connect, share moments, and engage in real-time conversations. The app features instant messaging, notifications, and a feed system with millions of daily interactions.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8;">
+                        Built with React Native for iOS and Android, the application prioritizes performance and user experience with offline-first capabilities.
+                    </p>
+                </div>
+                <div class="case-study-image">
+                    <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=400&fit=crop" alt="Social App">
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">8 months</div>
+                    <div class="stat-label">Development Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-label">Downloads</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4.7★</div>
+                    <div class="stat-label">App Store Rating</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">50M</div>
+                    <div class="stat-label">Messages/Month</div>
+                </div>
+            </div>
+
+            <!-- Challenges & Solutions -->
+            <h2 style="font-size: 2rem; margin: 60px 0 40px;">Challenges & Solutions</h2>
+            
+            <div class="challenge-grid">
+                <div class="challenge-item">
+                    <h4>Challenge: Real-time Messaging</h4>
+                    <p>Implementing reliable, low-latency messaging with delivery confirmation across multiple devices.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Solution: Firebase & Redux</h4>
+                    <p>Leveraged Firebase Realtime Database with Redux for state management ensuring message consistency.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Challenge: Offline Functionality</h4>
+                    <p>Enabling users to access and interact with the app even without internet connection.</p>
+                </div>
+                <div class="challenge-item">
+                    <h4>Solution: Local Storage & Sync</h4>
+                    <p>Implemented local data persistence with background sync when connection is restored.</p>
+                </div>
+            </div>
+
+            <!-- Tech Stack -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Technology Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-badge">React Native</div>
+                    <div class="tech-badge">Firebase</div>
+                    <div class="tech-badge">Redux</div>
+                    <div class="tech-badge">Expo</div>
+                    <div class="tech-badge">Node.js</div>
+                    <div class="tech-badge">Socket.io</div>
+                    <div class="tech-badge">MongoDB</div>
+                    <div class="tech-badge">AsyncStorage</div>
+                </div>
+            </div>
+
+            <!-- Key Features -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Key Features</h2>
+                <ul class="solution-list">
+                    <li>Real-time messaging with typing indicators and read receipts</li>
+                    <li>User profiles with customizable bios and profile pictures</li>
+                    <li>Feed system with posts, comments, and likes</li>
+                    <li>Push notifications for messages and interactions</li>
+                    <li>User discovery and friend request system</li>
+                    <li>Block and report functionality for safety</li>
+                    <li>Offline-first architecture with auto-sync</li>
+                    <li>Media sharing (photos and videos)</li>
+                    <li>Search functionality with hashtags</li>
+                    <li>Privacy controls and account settings</li>
+                </ul>
+            </div>
+
+            <!-- Results -->
+            <div style="background: linear-gradient(135deg, rgba(10, 122, 255, 0.1), rgba(255, 107, 53, 0.1)); padding: 60px; border-radius: 12px; margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Results & Impact</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div>
+                        <h4 style="color: var(--primary-blue); font-size: 1.2rem; margin-bottom: 15px;">User Metrics</h4>
+                        <ul class="solution-list">
+                            <li>100K+ downloads in first month</li>
+                            <li>35% daily active user rate</li>
+                            <li>4.7/5 average rating</li>
+                            <li>Featured on App Store</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent-orange); font-size: 1.2rem; margin-bottom: 15px;">Technical Performance</h4>
+                        <ul class="solution-list">
+                            <li>Average message latency: &lt;100ms</li>
+                            <li>App size: &lt;50MB</li>
+                            <li>99.8% uptime for backend</li>
+                            <li>Supports 100K concurrent connections</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lessons Learned -->
+            <div style="margin: 60px 0;">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Lessons Learned</h2>
+                <ul class="solution-list">
+                    <li>Importance of offline-first architecture for mobile apps</li>
+                    <li>Value of real-time database synchronization</li>
+                    <li>Critical need for robust error handling and recovery</li>
+                    <li>Benefits of comprehensive testing on various devices</li>
+                    <li>Significance of scalable backend infrastructure</li>
+                </ul>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; padding: 60px 0;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 30px;">Want to create your next app?</h3>
+                <a href="index.html#contact" class="btn btn-primary">Let's Collaborate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Alex - Frontend Developer. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html#home">Home</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

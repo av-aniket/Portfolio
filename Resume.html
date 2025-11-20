@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Software Developer</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Configure Tailwind for Dark Mode and Font -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Apply the font to the whole page */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Print-specific styles */
+        @media print {
+            /* Hide non-essential elements when printing */
+            #utility-buttons {
+                display: none;
+            }
+            
+            /* Remove shadows and backgrounds for print */
+            main {
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                border: none !important;
+            }
+            
+            /* Ensure text is black for printing */
+            body, h1, h2, h3, h4, p, li, a {
+                color: #000 !important;
+            }
+            
+            /* Ensure backgrounds are white */
+            body, main, section {
+                background-color: #fff !important;
+            }
+
+            /* Prevent page breaks inside sections */
+            section, .job-entry {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* --- Neon Blue Scrollbar (WebKit: Chrome, Safari, Edge) --- */
+
+/* 1. Sets the width of the scrollbar */
+body::-webkit-scrollbar {
+  width: 14px;
+}
+
+/* 2. The "track" (the background) */
+body::-webkit-scrollbar-track {
+  background: #111; /* Very dark background to make the neon pop */
+}
+
+/* 3. The draggable "thumb" */
+body::-webkit-scrollbar-thumb {
+  background-color: #017bc7; /* A bright, neon-like cyan/blue */
+  border-radius: 10px;
+  border: 3px solid #111; /* Creates a "padding" effect */
+
+  /* The "glow" effect */
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.7);
+}
+
+/* 4. The thumb on hover (intensify the glow) */
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 1);
+}
+
+/* --- Neon Blue Scrollbar (Firefox) --- */
+
+/* Firefox does not support the glow (box-shadow) or rounded borders on the scrollbar.
+   This provides the closest possible fallback with the correct colors. 
+*/
+html {
+  scrollbar-width: thin; /* 'auto' or 'thin' */
+  scrollbar-color: #017bc7 #111; /* thumb-color track-color */
+}
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Utility Buttons (Dark Mode Toggle & Print) -->
+    <div id="utility-buttons" class="fixed top-4 right-4 z-10 flex gap-3">
+        <button id="dark-mode-toggle" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <!-- Moon Icon (for switching to dark) -->
+            <svg id="theme-icon-light" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 008.25-4.502z" />
+            </svg>
+            <!-- Sun Icon (for switching to light) -->
+            <svg id="theme-icon-dark" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-6.364-.386l1.591-1.591M3 12h2.25m.386-6.364l1.591 1.591" />
+            </svg>
+        </button>
+        <button id="print-btn" class="p-2 rounded-full bg-white dark:bg-gray-800 shadow-md text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" title="Print Resume">
+            <!-- Print Icon -->
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.803-2.22m-2.003 0A2.25 2.25 0 0017.25 5.25H6.75A2.25 2.25 0 004.5 7.5v6.306c0 1.081.768 2.015 1.803 2.22m10.003-11.218c.254.02.506.042.756.065A4.498 4.498 0 0119.5 9.75V15.75c0 .621-.504 1.125-1.125 1.125H5.625c-.621 0-1.125-.504-1.125-1.125V9.75c0-1.396 1.134-2.529 2.529-2.529h.243c.25-.022.502-.043.756-.065m10.003-11.218a4.471 4.471 0 00-5.228-2.818l-1.06 1.061l1.06 1.061a4.471 4.471 0 005.228-2.818z" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <main class="max-w-4xl mx-auto my-10 p-6 sm:p-10 bg-white dark:bg-gray-800 rounded-xl shadow-2xl transition-colors duration-300">
+
+        <!-- Header: Name, Title, and Bio -->
+        <header class="flex flex-col md:flex-row items-center md:items-start mb-10">
+            
+            <div class="flex-grow text-center md:text-left">
+                <!-- Name -->
+                <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-2">
+                    John Doe
+                </h1>
+                
+                <!-- Title -->
+                <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-4">
+                    Senior Software Developer
+                </h2>
+                
+                <!-- Bio / Professional Summary -->
+                <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Dynamic and results-oriented Senior Software Developer with 10+ years of experience in designing, developing, and deploying scalable web applications. Proven expertise in JavaScript, React, Node.js, and cloud architectures. Passionate about building high-quality software, mentoring junior developers, and driving technical innovation.
+                </p>
+            </div>
+        </header>
+
+        <!-- Contact Information -->
+        <section class="mb-10">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white border-b-2 border-blue-500 dark:border-blue-400 pb-2 mb-6">
+                Contact Information
+            </h3>
+            <div class="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4">
+                <a href="mailto:john.doe@example.com" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                    john.doe@example.com
+                </a>
+                <a href="tel:+11234567890" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.211-.99-.55-1.352l-2.288-2.288c-.34-.34-.836-.55-1.352-.55H16.5a.75.75 0 00-.75.75v.75c0 .31.05.61.146.894.097.284.217.555.358.814.14.26.298.508.474.744.176.236.37.458.58.666.21.208.432.392.666.58.236.176.458.37.666.58.26.14.508.298.744.474.26.14.53.26.814.358.284.096.584.146.894.146h.75a.75.75 0 00.75-.75h.372c.516 0 .99-.21 1.352-.55l2.288-2.288c.34-.34.55-.836.55-1.352v-1.372a2.25 2.25 0 00-2.25-2.25H15c-8.284 0-15 6.716-15 15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .99.21 1.352.55l2.288 2.288c.34.34.55.836.55 1.352V9a.75.75 0 00.75.75h.75c.31 0 .61-.05.894-.146.284-.097.555-.217.814-.358.26-.14.508-.298.744-.474.236-.176.458-.37.666-.58.208-.21.392-.432.58-.666.176-.236.37-.458.58-.666.14-.26.298-.508.474-.744.14-.26.26-.53.358-.814.096-.284.146-.584.146-.894V6.75a.75.75 0 00-.75-.75H9.25a.75.75 0 00-.75.75v.372c0 .516-.21.99-.55 1.352l-2.288 2.288c-.34.34-.836.55-1.352.55H3.75a.75.75 0 01-.75-.75V6.75z" /></svg>
+                    +1 (123) 456-7890
+                </a>
+                <a href="https://www.linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    linkedin.com/in/johndoe
+                </a>
+                <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.034c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    github.com/johndoe
+                </a>
+                <span class="flex items-center text-gray-700 dark:text-gray-300">
+                    <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                    San Francisco, CA
+                </span>
+            </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="mb-10">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white border-b-2 border-blue-500 dark:border-blue-400 pb-2 mb-6">
+                Technical Skills
+            </h3>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">Next.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Express.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Agile/Scrum</span>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="mb-10">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white border-b-2 border-blue-500 dark:border-blue-400 pb-2 mb-6">
+                Work Experience
+            </h3>
+            <div class="space-y-8">
+                <!-- Job 1 -->
+                <div class="job-entry">
+                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Senior Software Developer</h4>
+                    <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">TechCorp Inc. | San Francisco, CA</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Jan 2020 – Present</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                        <li>Led the development of a high-traffic, customer-facing e-commerce platform using React, Next.js, and a Node.js microservices backend.</li>
+                        <li>Mentored and guided a team of 5 junior and mid-level developers, conducting code reviews and promoting best practices.</li>
+                        <li>Engineered and implemented a new CI/CD pipeline using GitHub Actions and AWS, reducing deployment times by 40%.</li>
+                        <li>Collaborated with product managers and designers to translate business requirements into technical specifications and user-centric features.</li>
+                    </ul>
+                </div>
+                
+                <!-- Job 2 -->
+                <div class="job-entry">
+                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Software Developer</h4>
+                    <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">WebSolutions Co. | Austin, TX</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Jun 2017 – Dec 2019</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                        <li>Developed and maintained full-stack web applications for various clients using the MERN stack (MongoDB, Express, React, Node).</li>
+                        <li>Contributed to the migration of a monolithic application to a microservices architecture, improving scalability and maintainability.</li>
+                        <li>Wrote comprehensive unit and integration tests using Jest and React Testing Library, achieving 90% test coverage.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-entry">
+                    <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Junior Web Developer</h4>
+                    <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Innovate Startups | Austin, TX</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">May 2016 – Jun 2017</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                        <li>Assisted in building responsive user interfaces with HTML5, CSS3, and jQuery.</li>
+                        <li>Gained foundational experience in full-stack development and version control with Git.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-white border-b-2 border-blue-500 dark:border-blue-400 pb-2 mb-6">
+                Education
+            </h3>
+            <div>
+                <h4 class="text-xl font-semibold text-gray-900 dark:text-white">M.S. in Computer Science</h4>
+                <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">Stanford University | Stanford, CA</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">2014 – 2016</p>
+            </div>
+             <div>
+                <h4 class="text-xl font-semibold text-gray-900 dark:text-white">B.S. in Computer Science</h4>
+                <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-1">University of Texas at Austin | Austin, TX</Gacrux>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">2010 – 2014</p>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="text-center p-4 text-sm text-gray-500 dark:text-gray-400">
+        &copy; 2025 John Doe. All Rights Reserved.
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('dark-mode-toggle');
+            const printButton = document.getElementById('print-btn');
+            const htmlElement = document.documentElement;
+            const lightIcon = document.getElementById('theme-icon-light');
+            const darkIcon = document.getElementById('theme-icon-dark');
+
+            // Function to set theme
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    htmlElement.classList.add('dark');
+                    lightIcon.classList.add('hidden');
+                    darkIcon.classList.remove('hidden');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    htmlElement.classList.remove('dark');
+                    lightIcon.classList.remove('hidden');
+                    darkIcon.classList.add('hidden');
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            // Check for saved theme in localStorage
+            const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            setTheme(savedTheme);
+
+            // Dark Mode Toggle Button
+            toggleButton.addEventListener('click', () => {
+                const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+                setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+            });
+
+            // Print Button
+            printButton.addEventListener('click', () => {
+                window.print();
+            });
+
+            // Add styles for skill tags dynamically (to use Tailwind's @apply-like utility)
+            // This is a workaround since we can't use @apply in a simple <style> tag without a build step.
+            // We just add the classes directly.
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.classList.add(
+                    'bg-blue-100', 
+                    'text-blue-800', 
+                    'dark:bg-blue-900', 
+                    'dark:text-blue-200',
+                    'px-3', 
+                    'py-1', 
+                    'rounded-full', 
+                    'text-sm', 
+                    'font-medium'
+                );
+            });
+        });
+    </script>
+</body>
+</html>
